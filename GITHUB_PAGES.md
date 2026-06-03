@@ -11,9 +11,10 @@ This project is configured for GitHub Pages static hosting.
 
 If deployment fails with `Get Pages site failed`, `Creating Pages deployment failed`,
 or `HttpError: Not Found`, GitHub Pages is not enabled for the repository yet, or
-the source is not set to `GitHub Actions`. The workflow includes
-`enablement: true` so it can enable Pages automatically when GitHub allows it.
-If it still fails, open:
+the source is not set to `GitHub Actions`.
+
+If deployment fails with `Resource not accessible by integration`, GitHub did not
+allow the workflow token to enable Pages automatically. Open:
 
 ```txt
 https://github.com/shaveshovak/app-roadmap-nextjs-gasp/settings/pages
