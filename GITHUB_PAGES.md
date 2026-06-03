@@ -9,9 +9,11 @@ This project is configured for GitHub Pages static hosting.
 3. Go to `Settings` -> `Pages`.
 4. Set `Source` to `GitHub Actions`.
 
-If deployment fails with `Creating Pages deployment failed` and `HttpError: Not Found`,
-GitHub Pages is not enabled for the repository yet, or the source is not set to
-`GitHub Actions`. Open:
+If deployment fails with `Get Pages site failed`, `Creating Pages deployment failed`,
+or `HttpError: Not Found`, GitHub Pages is not enabled for the repository yet, or
+the source is not set to `GitHub Actions`. The workflow includes
+`enablement: true` so it can enable Pages automatically when GitHub allows it.
+If it still fails, open:
 
 ```txt
 https://github.com/shaveshovak/app-roadmap-nextjs-gasp/settings/pages
