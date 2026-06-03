@@ -3,7 +3,12 @@ import { dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const projectRoot = dirname(fileURLToPath(import.meta.url));
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+const githubRepositoryName = process.env.GITHUB_REPOSITORY?.split("/")[1];
+const githubPagesBasePath =
+  process.env.GITHUB_ACTIONS && githubRepositoryName
+    ? `/${githubRepositoryName}`
+    : "";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || githubPagesBasePath;
 
 const nextConfig: NextConfig = {
   output: "export",

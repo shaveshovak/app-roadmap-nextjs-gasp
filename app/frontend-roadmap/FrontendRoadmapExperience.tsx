@@ -14,6 +14,12 @@ type RoadmapStep = {
   skills: string[];
 };
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
+function publicAsset(path: string) {
+  return path.startsWith("/") ? `${basePath}${path}` : path;
+}
+
 const roadmapSteps: RoadmapStep[] = [
   {
     eyebrow: "Foundation",
@@ -134,7 +140,7 @@ function RoadmapCard({
           alt=""
           className="relative z-10 h-56 w-56 object-contain drop-shadow-2xl transition duration-500 group-hover:-translate-y-2"
           height={224}
-          src={step.icon}
+          src={publicAsset(step.icon)}
           width={224}
         />
         <div

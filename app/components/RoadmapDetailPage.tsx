@@ -18,6 +18,12 @@ type RoadmapDetailPageProps = {
   steps: RoadmapStep[];
 };
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
+function publicAsset(path: string) {
+  return path.startsWith("/") ? `${basePath}${path}` : path;
+}
+
 function Connector({ reverse = false }: { reverse?: boolean }) {
   return (
     <div className="relative hidden h-16 min-w-24 flex-1 items-center xl:flex">
@@ -66,7 +72,7 @@ function RoadmapCard({ step }: { step: RoadmapStep }) {
           alt=""
           className="relative z-10 h-56 w-56 object-contain drop-shadow-2xl"
           height={224}
-          src={step.icon}
+          src={publicAsset(step.icon)}
           width={224}
         />
         <div

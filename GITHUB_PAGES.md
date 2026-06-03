@@ -52,6 +52,10 @@ https://your-username.github.io/
 
 leave `NEXT_PUBLIC_BASE_PATH` unset.
 
+The GitHub Actions workflow also falls back to the repository name automatically,
+so this project deploys with `/app-roadmap-nextjs-gasp` even if the variable is
+not created.
+
 ## Local Static Build
 
 ```bash

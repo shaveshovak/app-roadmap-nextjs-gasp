@@ -36,7 +36,7 @@ jobs:
       - name: Build static site
         run: npm run build:pages
         env:
-          NEXT_PUBLIC_BASE_PATH: ${{ vars.NEXT_PUBLIC_BASE_PATH }}
+          NEXT_PUBLIC_BASE_PATH: ${{ vars.NEXT_PUBLIC_BASE_PATH || format('/{0}', github.event.repository.name) }}
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
