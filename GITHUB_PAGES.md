@@ -9,6 +9,16 @@ This project is configured for GitHub Pages static hosting.
 3. Go to `Settings` -> `Pages`.
 4. Set `Source` to `GitHub Actions`.
 
+If deployment fails with `Creating Pages deployment failed` and `HttpError: Not Found`,
+GitHub Pages is not enabled for the repository yet, or the source is not set to
+`GitHub Actions`. Open:
+
+```txt
+https://github.com/shaveshovak/app-roadmap-nextjs-gasp/settings/pages
+```
+
+Then enable Pages and choose `GitHub Actions` as the source.
+
 ## Repository Project Page
 
 If the site will live at:
@@ -21,6 +31,12 @@ add a repository variable:
 
 ```txt
 NEXT_PUBLIC_BASE_PATH=/repository-name
+```
+
+For this repository, use:
+
+```txt
+NEXT_PUBLIC_BASE_PATH=/app-roadmap-nextjs-gasp
 ```
 
 Create it in `Settings` -> `Secrets and variables` -> `Actions` -> `Variables`.
