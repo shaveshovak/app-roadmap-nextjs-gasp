@@ -1,36 +1,131 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# App Roadmap
+
+A modern interactive roadmap dashboard built with Next.js, TypeScript, GSAP, and Three.js.
+
+The app helps users explore software career paths through a dashboard of professions and detailed roadmap pages inspired by roadmap.sh.
+
+## Features
+
+- Profession dashboard with roadmap cards
+- Detailed interactive roadmap pages
+- Frontend roadmap page with structured learning steps
+- Dynamic roadmap routes for multiple software careers
+- Animated welcome intro
+- Static export support for GitHub Pages
+
+## Tech Stack
+
+- Next.js 16
+- TypeScript
+- React 19
+- Tailwind CSS 4
+- GSAP
+- Three.js
+- React Three Fiber
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```txt
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Available Scripts
 
-## Learn More
+```bash
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+Starts the local development server.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run lint
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Runs ESLint.
 
-## Deploy on Vercel
+```bash
+npm run build
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Creates a production build.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run build:pages
+```
+
+Creates the static export used for GitHub Pages. The output is generated in the `out` folder.
+
+## Project Structure
+
+```txt
+app/
+  components/
+    RoadmapDetailPage.tsx
+    WelcomeIntro.tsx
+  frontend-roadmap/
+    page.tsx
+  roadmaps/
+    [slug]/
+      page.tsx
+    data.ts
+  page.tsx
+assets/
+  icons/
+    svg.ts
+public/
+  roadmap-icons/
+```
+
+## Main Routes
+
+```txt
+/
+/frontend-roadmap
+/roadmaps/frontend
+/roadmaps/backend
+/roadmaps/full-stack
+/roadmaps/devops
+/roadmaps/mobile
+/roadmaps/ai-engineer
+/roadmaps/data-engineer
+/roadmaps/cyber-security
+/roadmaps/qa
+```
+
+## GitHub Pages Deployment
+
+This project is configured for GitHub Pages using static export.
+
+In GitHub:
+
+1. Go to `Settings` -> `Pages`.
+2. Set `Source` to `GitHub Actions`.
+3. Go to `Settings` -> `Secrets and variables` -> `Actions` -> `Variables`.
+4. Add this repository variable:
+
+```txt
+Name: NEXT_PUBLIC_BASE_PATH
+Value: /app-roadmap-nextjs-gasp
+```
+
+Then push to the `main` branch. The workflow in `.github/workflows/deploy-pages.yml` will build and deploy the `out` folder.
+
+## Notes
+
+- GitHub Pages must be enabled manually once in repository settings.
+- The `NEXT_PUBLIC_BASE_PATH` value must match the repository name when deploying to a project page.
+- Build output folders such as `.next/`, `out/`, and `node_modules/` are ignored by git.
